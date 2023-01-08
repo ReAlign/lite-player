@@ -2,7 +2,6 @@ import * as React from 'react';
 import styles from './index.module.css';
 
 interface ComponentProps {
-  /** Title for LitePlayer. */
   title: string;
 }
 
