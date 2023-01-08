@@ -4,7 +4,7 @@ name: Node.js Package
 on:
   push:
     branches:
-      - main
+      - main-0
 
 # 按顺序运行作业
 jobs:
