@@ -28,7 +28,7 @@ jobs:
           key: node-modules-${{ runner.os }}-${{ matrix.node-version }}-${{ hashFiles('package-lock.json') }}
 
       - name: Install Packages
-        run: test -d node_modules && echo "node_modules exists" || npm ci
+      - run: test -d node_modules && echo "node_modules exists" || npm ci
 
   publish-npm:
     needs: build
