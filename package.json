@@ -31,7 +31,6 @@
     "eslint:fix": "npm run eslint -- --fix",
     "stylelint": "stylelint \"**/*.{css,scss,less}\"",
     "lint": "npm run eslint && npm run stylelint",
-    "ci": "node ci/ci.js",
     "test": "node test/test.js"
   },
   "keywords": [
