@@ -5,4 +5,7 @@ export default defineConfig({
   plugins: [
     '@ice/pkg-plugin-docusaurus',
   ],
+  alias: {
+    '@': './src',
+  },
 });

@@ -1,0 +1,103 @@
+/* -- container ----------------------------------------- */
+.XPlayerContainer {
+  position: relative;
+  width: 100%;
+  background-color: #000;
+  font-size: 0;
+  overflow: hidden;
+
+  // 下面两个伪类，让元素保持宽高比 1 : 0.56
+  &::before {
+    content: '';
+    padding-top: 56%;
+    float: left;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+/* -- video --------------------------------------------- */
+.XPlayerVideo {
+  width: 100%;
+  max-height: 100%;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* -- controls ------------------------------------------ */
+$controls-font-size: 20px;
+$controls-height: $controls-font-size * 1.8;
+$controls-line-height: $controls-height;
+
+.ControlsContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: $controls-height;
+  font-size: $controls-font-size;
+  line-height: $controls-line-height;
+  background-color: rgba(0, 0, 0, .6);
+  // background-image: linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, .6));
+  z-index: 100;
+  transform-origin: right;
+  transition: bottom .3s ease-in-out;
+  transform: translateZ(100px);
+}
+
+.ControlsContainerHide {
+  bottom: -$controls-height;
+}
+
+.ControlsSlideBarContainer {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  right: 10px;
+}
+
+.ControlsItem {
+  width: $controls-height;
+  text-align: center;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.ControlsItemVoiceDisplay {
+  width: $controls-height * 1.6;
+  text-align: left;
+}
+
+.ControlsGap {
+  width: $controls-height / 2;
+}
+
+.VoiceDisplayBoard {
+  color: #fff;
+  font-size: 0.6em;
+  margin-left: 0.1em;
+  vertical-align: 0.15em;
+  user-select: none;
+}
+
+.PlayProgressText {
+  // margin-left: $controls-height / 4;
+  font-size: $controls-font-size / 1.4;
+  color: #ccc;
+  user-select: none;
+}
+
+@media screen and (max-width: 750px) {
+  //
+}

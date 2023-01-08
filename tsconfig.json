@@ -14,7 +14,10 @@
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": ["src/*.ts", "src/*.tsx"],
   "exclude": ["node_modules", "build", "public"]

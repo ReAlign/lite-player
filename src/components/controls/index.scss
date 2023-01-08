@@ -1,0 +1,28 @@
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  // fill: currentColor;
+  fill: #fff;
+  overflow: hidden;
+  transition: all .3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.icon-min {
+  width: 0.6em;
+  height: 0.6em;
+  fill: #fff;
+  overflow: hidden;
+}
+
+.c-global-full-screen {
+  // background: red;
+  transform-origin: center;
+  transform: rotate(90deg) translate(calc(50vh - 50vw), calc(50vh - 50vw));
+  width: 100vh;
+  height: 100vw;
+}
