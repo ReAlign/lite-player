@@ -38,7 +38,7 @@ const Player = (props: any) => {
         x5-video-player-type="h5-page"
         x5-video-orientation="landscape|portrait"
       />
-      <Controls containerId={containerId} videoId={videoId} />
+      <Controls containerId={containerId} videoId={videoId} videoUrl={videoUrl} />
     </div>
   );
 };

@@ -80,3 +80,39 @@ export const getExitFullScreenFn = (): Function | false => {
 
   return fn;
 };
+
+/**
+ * 文本复制
+ *
+ * @param {string} [text=''] 复制文本
+ *
+ * @return {Promise}
+ */
+export const copy = (text = ''): Promise<void> => {
+  return new Promise<void>((res, rej) => {
+    const textNode = document.createElement('textarea');
+    textNode.value = text;
+    textNode.style.position = 'absolute';
+    textNode.style.top = '0';
+    textNode.style.zIndex = '-999';
+    document.body.appendChild(textNode);
+
+    textNode.select();
+
+    try {
+      const successful = document.execCommand('copy');
+      document.body.removeChild(textNode);
+
+      if (successful) {
+        res();
+      } else {
+        rej();
+      }
+    } catch (err) {
+      document.body.removeChild(textNode);
+      rej();
+    }
+  });
+};
+
+export default {};
