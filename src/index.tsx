@@ -1,15 +1,15 @@
 /* eslint-disable react/no-unknown-property */
 import * as React from 'react';
-import { initPlayer } from './core';
+import { initPlayer } from '@/core';
 import styles from './index.module.scss';
 import {
   CONTAINER_ID as containerId,
   VIDEO_ID as videoId,
-} from './config';
-import { afterCreated, beforeDestroy } from './utils/life-cycles';
-import Controls from './components/controls';
+} from '@/config';
+import { afterCreated, beforeDestroy } from '@/utils/life-cycles';
+import Controls from '@/components/controls';
 
-const Player = (props: any) => {
+export default function LitePlayer(props: IF_LitePlayer_Props) {
   const {
     videoUrl = '',
   } = props;
@@ -25,7 +25,7 @@ const Player = (props: any) => {
     return () => {
       beforeDestroy();
     };
-  }, []);
+  }, [videoUrl]);
 
   return (
     <div id={containerId} className={styles.XPlayerContainer}>
@@ -38,9 +38,8 @@ const Player = (props: any) => {
         x5-video-player-type="h5-page"
         x5-video-orientation="landscape|portrait"
       />
-      <Controls containerId={containerId} videoId={videoId} videoUrl={videoUrl} />
+      <Controls containerId={containerId} videoId={videoId} {...props} />
     </div>
   );
-};
+}
 
-export default Player;

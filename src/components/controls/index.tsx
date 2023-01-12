@@ -21,7 +21,7 @@ const Controls = (props: any) => {
   const {
     containerId,
     videoId,
-    videoUrl,
+    ...otherProps
   } = props;
   const [pressPro, setPressPro] = React.useState<Press | null>(null);
   const [controlsBarShow, setControlsBarShow] = React.useState(true);
@@ -61,7 +61,7 @@ const Controls = (props: any) => {
       </div>
 
       <div style={{ display: 'flex' }}>
-        <BtnPlugin videoUrl={videoUrl} />
+        <BtnPlugin {...otherProps} />
         <BtnTogglePicInPic videoId={videoId} />
         <BtnToggleFullscreen containerId={containerId} controlsId={CONTROLS_ID} />
       </div>

@@ -11,7 +11,7 @@ export default function LPDropdown({
   children,
 }: {
   labelList: Array<{ label: string; key: string }>;
-  itemClick: (item: { label: string; key: string }) => void;
+  itemClick: (item: { label: string; key: string }, idx: number) => void;
   align?: 'left' | 'right' | 'middle';
   children: any;
 }) {
@@ -19,8 +19,8 @@ export default function LPDropdown({
   const triggerId = `j-trigger-${UUID}`;
   const listId = `j-list-ul-${UUID}`;
 
-  const labelItemClickEvt = (item: { label: string; key: string }) => {
-    itemClick(item);
+  const labelItemClickEvt = (item: { label: string; key: string }, idx: number) => {
+    itemClick(item, idx);
   };
 
   const [listDisplayed, setListDisplayed] = React.useState(false);
@@ -58,9 +58,9 @@ export default function LPDropdown({
         id={listId}
         className={`${styles.LPDropdownListUl} ${styles[`LPDropdownListUlAlign${firstCharUpperCase(align)}`]}`}
       >
-        {labelList.map((item) => {
+        {labelList.map((item, idx) => {
           return (
-            <li key={item.key} onClick={() => { labelItemClickEvt(item); }}>{item.label}</li>
+            <li key={item.key} onClick={() => { labelItemClickEvt(item, idx); }}>{item.label}</li>
           );
         })}
       </ul>
